@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses</title>
+    <link rel="stylesheet" href="expenses.css">
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Expense</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody id="itemList">
+            <!-- Items will be added here dynamically -->
+        </tbody>
+    </table>
+    
+    <button id="addItemButton">Add Expense</button>
+    
+    <p>Total Price: KES <span id="totalPrice">0.00</span></p>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const addItemButton = document.getElementById("addItemButton");
+            const itemList = document.getElementById("itemList");
+            const totalPriceElement = document.getElementById("totalPrice");
+
+            addItemButton.addEventListener("click", function() {
+                // Create a new row for the table
+                const newRow = document.createElement("tr");
+
+                // Create three cells (columns) for the row
+                const itemNameCell = document.createElement("td");
+                const descriptionCell = document.createElement("td");
+                const priceCell = document.createElement("td");
+
+                // Create input fields for each cell
+                const itemNameInput = document.createElement("input");
+                itemNameInput.type = "text";
+                const descriptionInput = document.createElement("input");
+                descriptionInput.type = "text";
+                const priceInput = document.createElement("input");
+                priceInput.type = "number";
+
+                // Append the input fields to their respective cells
+                itemNameCell.appendChild(itemNameInput);
+                descriptionCell.appendChild(descriptionInput);
+                priceCell.appendChild(priceInput);
+
+                // Append the cells to the row
+                newRow.appendChild(itemNameCell);
+                newRow.appendChild(descriptionCell);
+                newRow.appendChild(priceCell);
+
+                // Append the row to the table
+                itemList.appendChild(newRow);
+
+                // Add an event listener to the price input to update the total
+                priceInput.addEventListener("input", updateTotalPrice);
+            });
+
+            function updateTotalPrice() {
+                const priceInputs = document.querySelectorAll("#itemList input[type='number']");
+                let totalPrice = 0;
+
+                priceInputs.forEach(priceInput => {
+                    totalPrice += parseFloat(priceInput.value) || 0;
+                });
+
+                totalPriceElement.textContent = totalPrice.toFixed(2);
+            }
+        });
+    </script>
+</body>
+</html>
