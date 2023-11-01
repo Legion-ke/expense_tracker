@@ -1,6 +1,12 @@
-body {
-    font-family: Arial, sans-serif;
-    background-image: url(https://previews.123rf.com/images/peshkov/peshkov1904/peshkov190401207/121775216-finance-and-trade-concept-creative-white-city-wallpaper-with-forex-chart-double-exposure.jpg);
+body{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'Jost', sans-serif;
+	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
 }
 table {
     border-collapse: collapse;

@@ -1,6 +1,13 @@
 body{
-    font-family: Arial, sans-serif;
-    background-image: url(https://previews.123rf.com/images/peshkov/peshkov1904/peshkov190401207/121775216-finance-and-trade-concept-creative-white-city-wallpaper-with-forex-chart-double-exposure.jpg);
+	margin: 50;
+	padding: 50;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'Jost', sans-serif;
+	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+	color: rgb(0,0,0);
 }
 
 ul {
@@ -10,11 +17,11 @@ ul {
     overflow: hidden;
     background-color: #333;
   }
-  
+
   li {
     float: left;
   }
-  
+
   li a {
     display: block;
     color: white;
@@ -22,7 +29,7 @@ ul {
     padding: 14px 16px;
     text-decoration: none;
   }
-  
+
   /* Change the link color to #111 (black) on hover */
   li a:hover {
     background-color: #111;

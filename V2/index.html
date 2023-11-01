@@ -1,75 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense tracker </title>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Expense Tracker</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>   
-   <div class="nav-bar">
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="expenses.html">Expenses</a></li>
-        <li><a href="accounts.html">Accounts</a></li>
-      </ul> 
-   </div>
-
-<div class="news">
-
-    <marquee behavior="scroll" height="50" scrollamount="20">
-        <h1>Stock Market News</h1> 
-      </marquee>
-    <div id="news-container">
-        <!-- News articles will be displayed here -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+      <div class="navbar">
+      <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i> Home</a>
+      <a href="accounts.html"><i class="fa fa-fw fa-accounts"></i> Accounts</a>
+      <a href="expenses.html"><i class="fa fa-fw fa-expenses"></i> Expenses</a>
     </div>
-
-    <script>
-        // Replace 'YOUR_API_KEY' with your actual NewsAPI key
-        const apiKey = 'd81707d6f1d543bbabace98a0b9479a6';
-        const apiUrl = `https://newsapi.org/v2/everything?q=stock%20market&apiKey=${apiKey}`;
-
-        // Function to fetch and display news articles
-        async function fetchNews() {
-            try {
-                const response = await fetch(apiUrl);
-                const data = await response.json();
-                const articles = data.articles;
-
-                const newsContainer = document.getElementById("news-container");
-
-                articles.forEach(article => {
-                    const articleDiv = document.createElement("div");
-                    articleDiv.className = "news-article";
-
-                    const title = document.createElement("h2");
-                    title.textContent = article.title;
-
-                    const description = document.createElement("p");
-                    description.textContent = article.description;
-
-                    const source = document.createElement("p");
-                    source.textContent = `Source: ${article.source.name}`;
-
-                    const link = document.createElement("a");
-                    link.href = article.url;
-                    link.textContent = "Read more";
-
-                    articleDiv.appendChild(title);
-                    articleDiv.appendChild(description);
-                    articleDiv.appendChild(source);
-                    articleDiv.appendChild(link);
-
-                    newsContainer.appendChild(articleDiv);
-                });
-            } catch (error) {
-                console.error('Error fetching news:', error);
-            }
-        }
-
-        // Call the fetchNews function to populate the page with news
-        fetchNews();
-    </script>
-</div>
-</body>
+    </nav>
+  </body>
 </html>
