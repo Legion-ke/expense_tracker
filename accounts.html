@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Accounts with Card Images</title>
+    <link rel="stylesheet" href="accounts.css">
+</head>
+<body>
+    <button class="add-button" onclick="addAccount()">Add Account</button>
+    <div id="accounts-container"></div>
+    <script>
+        let accountCounter = 0;
+
+        function addAccount() {
+            accountCounter++;
+            const accountsContainer = document.getElementById("accounts-container");
+            const accountDiv = document.createElement("div");
+            accountDiv.className = "account";
+            const cardDiv = document.createElement("div");
+            cardDiv.className = "card front"; // Display the front of the card by default
+            const maskDiv = document.createElement("div");
+            maskDiv.className = "mask";
+            maskDiv.innerHTML = "Click to Rotate";
+
+            cardDiv.appendChild(maskDiv);
+            accountDiv.appendChild(cardDiv);
+            accountsContainer.appendChild(accountDiv);
+
+            cardDiv.addEventListener("click", function () {
+                cardDiv.classList.toggle("front");
+                cardDiv.classList.toggle("back");
+            });
+        }
+
+        // Add initial accounts
+        for (let i = 0; i < 3; i++) {
+            addAccount();
+        }
+    </script>
+</body>
+</html>
